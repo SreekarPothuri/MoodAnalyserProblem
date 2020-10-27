@@ -1,8 +1,12 @@
 package com.moodanalyserproblem;
 
+import java.util.EmptyStackException;
+
+import com.customexp.MoodAnalysisException;
+
 public class MoodAnalyser {
 
-	String message;
+	static String message;
 
 	public MoodAnalyser() {
 		super();
@@ -13,13 +17,18 @@ public class MoodAnalyser {
 		this.message = message;
 	}
 
-	public String analyseability() {
+	public static String analyseability() throws MoodAnalysisException {
 		try {
 			if (message.contains("Sad"))
 				return "SAD";
-			return "HAPPY";
 		} catch (NullPointerException e) {
-			return "HAPPY";
+			if(message == null) {
+				throw new MoodAnalysisException("Please enter proper message");
+			}
+			if(message.trim() == "") {
+				throw new MoodAnalysisException("Please enter other than empty message");
+			}
 		}
+		return "HAPPY";
 	}
 }
