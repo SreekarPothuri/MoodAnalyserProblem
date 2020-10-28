@@ -28,8 +28,8 @@ public class MoodAnalyserTest {
 			assertEquals("SAD", mood.analyseability());
 		} catch (MoodAnalysisException e) {
 		}
-	}	
-		
+	}
+
 	@Test
 	public void testgivenNullMoodShouldReturnHaappy_thenAssertionHappy() {
 		mood = new MoodAnalyser(null);
@@ -38,25 +38,25 @@ public class MoodAnalyserTest {
 		} catch (MoodAnalysisException e) {
 		}
 	}
-	
+
 	@Test
 	public void testgivenNullMoodShouldThrowMoodAnalysis_thenAssertionHappy() {
 		mood = new MoodAnalyser(null);
 		try {
 			MoodAnalyser.analyseability();
 		} catch (MoodAnalysisException e) {
-			Assert.assertEquals("Please enter proper message",e.getMessage());
+			Assert.assertEquals("Please enter proper message", e.getMessage());
 			e.printStackTrace();
 		}
 	}
-	
+
 	@Test
 	public void testgivenEmptyMoodShouldThrowMoodAnalysis_thenAssertionHappy() {
-		mood = new MoodAnalyser(" ");
+		mood = new MoodAnalyser("");
 		try {
 			MoodAnalyser.analyseability();
 		} catch (MoodAnalysisException e) {
-			Assert.assertEquals("Please enter other than empty message",e.getMessage());
+			Assert.assertEquals("Please enter other than empty message", e.getMessage());
 			e.printStackTrace();
 		}
 	}
